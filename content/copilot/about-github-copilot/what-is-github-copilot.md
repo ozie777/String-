@@ -43,8 +43,9 @@ redirect_from:
 
 * In your IDE
 * In {% data variables.product.prodname_mobile %}, as a chat interface
+* In {% data variables.product.prodname_windows_terminal %} Canary, through the Terminal Chat chat interface
 * On the command line, through the {% data variables.product.prodname_cli %}
-* On {% data variables.product.prodname_dotcom_the_website %}, with a subscription to {% data variables.product.prodname_copilot_enterprise_short %}
+* On the {% data variables.product.github %} website
 
 For more information, see "[AUTOTITLE](/copilot/about-github-copilot/github-copilot-features)."
 
@@ -59,6 +60,8 @@ For more information, see "[AUTOTITLE](/copilot/about-github-copilot/github-copi
 **As an organization owner**, you can purchase a subscription to {% data variables.product.prodname_copilot_for_business %} for your organization. See "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization)." If your organization is owned by an enterprise that has a {% data variables.product.prodname_copilot_short %} subscription, you can ask your enterprise owner to enable {% data variables.product.prodname_copilot_short %} for your organization by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and requesting access under "Get Copilot from an organization."
 
 **As an enterprise owner**, you can purchase a subscription to {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} for your enterprise, and allow organizations to grant access to members. See "[AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise)."
+
+If you **don't need other features**, you can request an enterprise account specifically for managing {% data variables.product.prodname_copilot_for_business %} licenses. You won't pay for {% data variables.product.prodname_enterprise %} seats, and you won't be able to create organizations or repositories. See "[AUTOTITLE](/enterprise-cloud@latest/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business)."
 
 ## Next steps
 

@@ -39,19 +39,13 @@ curl --request GET \
 
 Most programming languages have a package that can generate a JWT. In all cases, you must have a private key and the ID of your {% data variables.product.prodname_github_app %}. For more information about generating a private key, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)". You can find your app's ID with the `GET /app` REST API endpoint. For more information, see "[Apps](/rest/apps/apps)" in the REST API documentation.
 
-{% note %}
-
-Note: Instead of creating a JWT, you can use {% data variables.product.company_short %}'s Octokit SDKs to authenticate as an app. The SDK will take care of generating a JWT for you and will regenerate the JWT once the token expires. For more information, see "[Scripting with the REST API and JavaScript](/rest/guides/scripting-with-the-rest-api-and-javascript#authenticating-with-a-github-app)."
-
-{% endnote %}
+> [!NOTE]
+> Instead of creating a JWT, you can use {% data variables.product.company_short %}'s Octokit SDKs to authenticate as an app. The SDK will take care of generating a JWT for you and will regenerate the JWT once the token expires. For more information, see "[Scripting with the REST API and JavaScript](/rest/guides/scripting-with-the-rest-api-and-javascript#authenticating-with-a-github-app)."
 
 ### Example: Using Ruby to generate a JWT
 
-{% note %}
-
-**Note:** You must run `gem install jwt` to install the `jwt` package in order to use this script.
-
-{% endnote %}
+> [!NOTE]
+> You must run `gem install jwt` to install the `jwt` package in order to use this script.
 
 In the following example, replace `YOUR_PATH_TO_PEM` with the file path where your private key is stored. Replace `YOUR_APP_ID` with the ID of your app. Make sure to enclose the values for `YOUR_PATH_TO_PEM` and `YOUR_APP_ID` in double quotes.
 
@@ -82,17 +76,15 @@ puts jwt
 
 ### Example: Using Python to generate a JWT
 
-{% note %}
-
-**Note:** You must run `pip install jwt` to install the `jwt` package in order to use this script.
-
-{% endnote %}
+> [!NOTE]
+> You must run `pip install PyJWT` to install the `PyJWT` package in order to use this script.
 
 ```python copy
 #!/usr/bin/env python3
-from jwt import JWT, jwk_from_pem
-import time
 import sys
+import time
+
+import jwt
 
 
 # Get PEM file path
@@ -117,7 +109,7 @@ else:
 
 # Open PEM
 with open(pem, 'rb') as pem_file:
-    signing_key = jwk_from_pem(pem_file.read())
+    signing_key = pem_file.read()
 
 payload = {
     # Issued at time
@@ -132,8 +124,7 @@ payload = {
 }
 
 # Create JWT
-jwt_instance = JWT()
-encoded_jwt = jwt_instance.encode(payload, signing_key, alg='RS256')
+encoded_jwt = jwt.encode(payload, signing_key, algorithm='RS256')
 
 print(f"JWT:  {encoded_jwt}")
 ```
@@ -142,11 +133,8 @@ This script will prompt you for the file path where your private key is stored a
 
 ### Example: Using Bash to generate a JWT
 
-{% note %}
-
-**Note:** You must pass your {% ifversion client-id-for-app %}Client ID{% else %}App ID{% endif %}  and the file path where your private key is stored as arguments when running this script.
-
-{% endnote %}
+> [!NOTE]
+> You must pass your {% ifversion client-id-for-app %}Client ID{% else %}App ID{% endif %}  and the file path where your private key is stored as arguments when running this script.
 
 ```bash copy
 #!/usr/bin/env bash
@@ -172,11 +160,11 @@ header_json='{
 # Header encode
 header=$( echo -n "${header_json}" | b64enc )
 
-payload_json='{
-    "iat":'"${iat}"',
-    "exp":'"${exp}"',
-    {% ifversion client-id-for-app %}"iss":'"${client_id}"'{% else %}"iss":'"${app_id}"'{% endif %}
-}'
+payload_json="{
+    \"iat\":${iat},
+    \"exp\":${exp},
+    {% ifversion client-id-for-app %}\"iss\":\"${client_id}\"{% else %}\"iss\":\"${app_id}\"{% endif %}
+}"
 # Payload encode
 payload=$( echo -n "${payload_json}" | b64enc )
 

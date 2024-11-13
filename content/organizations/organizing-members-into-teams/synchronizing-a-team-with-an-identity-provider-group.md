@@ -3,10 +3,10 @@ title: Synchronizing a team with an identity provider group
 intro: 'You can synchronize a {% data variables.product.product_name %} team with a supported identity provider (IdP) group to automatically add and remove team members.'
 redirect_from:
   - /github/setting-up-and-managing-organizations-and-teams/synchronizing-a-team-with-an-identity-provider-group
-permissions: 'Organization owners and team maintainers can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'
+permissions: 'Organization owners can synchronize a {% data variables.product.prodname_dotcom %} team with an IdP group.'
 versions:
   ghec: '*'
-  feature: scim-for-ghes
+  ghes: '*'
 topics:
   - Organizations
   - Teams
@@ -73,7 +73,7 @@ To avoid unintentionally removing team members, visit the administrative portal 
 
 You must authenticate using SAML SSO. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on)."
 
-{% elsif scim-for-ghes %}
+{% elsif ghes %}
 You must configure user provisioning with SCIM for {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)."
 
 {% data reusables.scim.ghes-beta-note %}

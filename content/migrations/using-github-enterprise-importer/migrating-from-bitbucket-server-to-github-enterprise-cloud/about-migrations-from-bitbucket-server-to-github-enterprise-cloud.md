@@ -10,7 +10,7 @@ versions:
 
 ## About migrations from Bitbucket Server
 
-You can use {% data variables.product.prodname_importer_proper_name %} to migrate repositories from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %}. Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitbucket Data Center version 5.14+ or higher.
+You can use {% data variables.product.prodname_importer_proper_name %} to migrate repositories from Bitbucket Server to {% data variables.product.prodname_ghe_cloud %} ({% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}). Migrations from Bitbucket Server are only supported for Bitbucket Server or Bitbucket Data Center version 5.14+ or higher.
 
 ## Data that is migrated
 
@@ -18,6 +18,9 @@ We currently only support migrating the following repository data from Bitbucket
 
 * Git source (including commit history)
 * Pull requests (including comments, pull request reviews, pull request review comments at the file and line level, required reviewers, and attachments)
+
+  > [!NOTE]
+  > Users may receive a `500` error when attempting to view a pull request, if the pull request was merged and the head branch deleted on Bitbucket Server prior to migration. Bitbucket Server removes specific Git references to objects for such pull requests, and consequently those Git objects associated with the pull request are unable to be migrated.
 
 ## Data that is not migrated
 
