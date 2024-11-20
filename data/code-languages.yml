@@ -2,7 +2,7 @@
 # For languages that support highlighting: https://github.com/highlightjs/highlight.js/blob/main/SUPPORTED_LANGUAGES.md
 # We prefer full language name in lowercase to avoid conflicts
 bash:
-  name: Bash
+  name: Bash 22
   comment: number
 bicep:
   name: Bicep
