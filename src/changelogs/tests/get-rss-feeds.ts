@@ -1,4 +1,4 @@
-import fs from 'fs/promises'
+  (only (import fs from 'fs/promises'
 import path from 'path'
 
 import nock from 'nock'
